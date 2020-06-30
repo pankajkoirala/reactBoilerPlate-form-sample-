@@ -1,14 +1,7 @@
 import React from "react";
 import { Formik } from "formik";
-import {
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  FormText,
-  CustomInput,
-} from "reactstrap";
+import { personDetailValidator } from "../utility/validator/formValidator";
+import { Form, FormGroup, Label, Input, CustomInput } from "reactstrap";
 
 const PersonalForm = () => {
   return (
@@ -31,6 +24,7 @@ const PersonalForm = () => {
         onSubmit={(values, actions) => {
           console.log(values);
         }}
+        validationSchema={personDetailValidator}
       >
         {({
           touched,
@@ -61,6 +55,15 @@ const PersonalForm = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
+                 
+                  {touched.firstName && errors.firstName && (
+                    <span
+                      className="text-danger col-md-12 text-left mb-2"
+                      style={{ fontSize: 12 }}
+                    >
+                      {errors.firstName}
+                    </span>
+                  )}
                 </div>
 
                 <div className="col-md-4">
@@ -73,6 +76,14 @@ const PersonalForm = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
+                  {touched.middleName && errors.middleName && (
+                    <span
+                      className="text-danger col-md-12 text-left mb-2"
+                      style={{ fontSize: 12 }}
+                    >
+                      {errors.middleName}
+                    </span>
+                  )}
                 </div>
 
                 <div className="col-md-4">
@@ -85,6 +96,14 @@ const PersonalForm = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
+                  {touched.lastName && errors.lastName && (
+                    <span
+                      className="text-danger col-md-12 text-left mb-2"
+                      style={{ fontSize: 12 }}
+                    >
+                      {errors.lastName}
+                    </span>
+                  )}
                 </div>
               </div>
 
@@ -99,6 +118,14 @@ const PersonalForm = () => {
                     min={0}
                     onChange={handleChange}
                   />
+                  {touched.age && errors.age && (
+                    <span
+                      className="text-danger col-md-12 text-left mb-2"
+                      style={{ fontSize: 12 }}
+                    >
+                      {errors.age}
+                    </span>
+                  )}
                 </div>
 
                 <div className="col-md-4">
@@ -113,6 +140,14 @@ const PersonalForm = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
+                  {touched.phone && errors.phone && (
+                    <span
+                      className="text-danger col-md-12 text-left mb-2"
+                      style={{ fontSize: 12 }}
+                    >
+                      {errors.phone}
+                    </span>
+                  )}
                 </div>
 
                 <div className="col-4">
@@ -125,6 +160,14 @@ const PersonalForm = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
+                  {touched.date && errors.date && (
+                    <span
+                      className="text-danger col-md-12 text-left mb-2"
+                      style={{ fontSize: 12 }}
+                    >
+                      {errors.date}
+                    </span>
+                  )}
                 </div>
               </div>
 
@@ -137,6 +180,14 @@ const PersonalForm = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
+                  {touched.country && errors.country && (
+                    <span
+                      className="text-danger col-md-12 text-left mb-2"
+                      style={{ fontSize: 12 }}
+                    >
+                      {errors.country}
+                    </span>
+                  )}
                 </div>
 
                 <div className="col-md-3">
@@ -147,6 +198,14 @@ const PersonalForm = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
+                  {touched.city && errors.city && (
+                    <span
+                      className="text-danger col-md-12 text-left mb-2"
+                      style={{ fontSize: 12 }}
+                    >
+                      {errors.city}
+                    </span>
+                  )}
                 </div>
 
                 <div className="col-md-3">
@@ -166,6 +225,14 @@ const PersonalForm = () => {
                     <option>6</option>
                     <option>7</option>
                   </Input>
+                  {touched.state && errors.state && (
+                    <span
+                      className="text-danger col-md-12 text-left mb-2"
+                      style={{ fontSize: 12 }}
+                    >
+                      {errors.state}
+                    </span>
+                  )}
                 </div>
 
                 <div className="col-md-3">
@@ -176,6 +243,14 @@ const PersonalForm = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
+                  {touched.zip && errors.zip && (
+                    <span
+                      className="text-danger col-md-12 text-left mb-2"
+                      style={{ fontSize: 12 }}
+                    >
+                      {errors.zip}
+                    </span>
+                  )}
                 </div>
               </div>
 
@@ -189,11 +264,18 @@ const PersonalForm = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
+                {touched.email && errors.email && (
+                  <span
+                    className="text-danger col-md-12 text-left mb-2"
+                    style={{ fontSize: 12 }}
+                  >
+                    {errors.email}
+                  </span>
+                )}
               </div>
 
               <div className="row mt-4">
                 <div className="col-md-1">
-                  <Label className="">male</Label>
                   <br />
                   <Input
                     type="radio"
@@ -202,9 +284,9 @@ const PersonalForm = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
+                  <Label className="">male</Label>
                 </div>
                 <div className="col-md-1">
-                  <Label className="align-right">female</Label>
                   <br />
                   <Input
                     type="radio"
@@ -213,7 +295,16 @@ const PersonalForm = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
+                  <Label className="align-right">female</Label>
                 </div>
+                {touched.gender && errors.gender && (
+                  <span
+                    className="text-danger col-md-12 text-left mb-2"
+                    style={{ fontSize: 12 }}
+                  >
+                    {errors.gender}
+                  </span>
+                )}
               </div>
 
               <br />
@@ -269,7 +360,7 @@ const PersonalForm = () => {
                       setFieldValue("pic", event.currentTarget.files[0]);
                     }}
                   />
-
+                  .
                   {touched.pic && values.pic && (
                     <img
                       src={URL.createObjectURL(values.pic)}

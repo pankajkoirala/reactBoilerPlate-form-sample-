@@ -55,7 +55,7 @@ const PersonalForm = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
-                 
+
                   {touched.firstName && errors.firstName && (
                     <span
                       className="text-danger col-md-12 text-left mb-2"
@@ -155,6 +155,7 @@ const PersonalForm = () => {
                   <Input
                     type="date"
                     name="date"
+                    value={values.date}
                     id="exampleDate"
                     placeholder="date placeholder"
                     onChange={handleChange}
@@ -177,6 +178,7 @@ const PersonalForm = () => {
                   <Input
                     type="text"
                     name="country"
+                    value={values.country}
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
@@ -195,6 +197,7 @@ const PersonalForm = () => {
                   <Input
                     type="text"
                     name="city"
+                    value={values.city}
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
@@ -213,17 +216,18 @@ const PersonalForm = () => {
                   <Input
                     type="select"
                     name="state"
+                    value={values.state}
                     id="exampleSelect"
                     onChange={handleChange}
                     onBlur={handleBlur}
                   >
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                    <option>7</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
                   </Input>
                   {touched.state && errors.state && (
                     <span
@@ -240,6 +244,7 @@ const PersonalForm = () => {
                   <Input
                     type="number"
                     name="zip"
+                    value={values.zip}
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
